@@ -8,34 +8,9 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="494dp"
-        android:layout_height="325dp"
+        android:layout_height="228dp"
         android:layout_gravity="center"
         android:layout_marginBottom="60dp"
-        app:srcCompat="@drawable/logotipe" />
+        app:srcCompat="@drawable/logo1024" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center"
-        android:text="Denys Kutsenko"
-        android:textAlignment="center"
-        android:textAllCaps="false"
-        android:textColor="@color/txtColor"
-        android:textSize="17dp"
-        android:textStyle="italic"
-        android:visibility="visible"
-        android:layout_marginBottom="30dp"/>
-    <TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="bottom|center"
-    android:text="Uniwersytet Ekonomiczny w Krakowie"
-    android:textAlignment="center"
-    android:textAllCaps="false"
-    android:textColor="@color/txtColor"
-    android:textSize="17dp"
-    android:textStyle="italic"
-    android:visibility="visible"
-        android:layout_marginBottom="10dp"
-    />
 </FrameLayout>
