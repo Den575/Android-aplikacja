@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Aplikacja 1.0.1</string>
+    <string name="app_name">App 1.0.2</string>
+    <string name="regisret">Register</string>
 </resources>
