@@ -13,6 +13,7 @@ import android.util.SparseArray;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.vision.CameraSource;
 import com.google.android.gms.vision.Detector;
@@ -109,16 +110,13 @@ public class MainActivity extends AppCompatActivity {
                         public void run() {
                             //Create vibrate
                             Vibrator vibrator = (Vibrator)getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
-                            vibrator.vibrate(200);
+                            vibrator.vibrate(50);
                             txtResult.setText(qrcodes.valueAt(0).displayValue);
                             //String info = String.valueOf(txtResult.getText());
                             String newinfo = String.valueOf(qrcodes.valueAt(0).displayValue);
-                            if(newinfo.equals("http://Denis")){
-                                txtResult.setText("Good");
-                            }
-                            else{
-                                txtResult.setText("Bad");
-                            }
+                            txtResult.setText(newinfo);
+                            //Toast toast = Toast.makeText(MainActivity.this,newinfo,Toast.LENGTH_LONG);
+                            //toast.show();
                         }
                     });
                 }
