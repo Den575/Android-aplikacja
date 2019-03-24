@@ -1,4 +1,4 @@
-package com.example.myapplication;
+package dev.edmt.qrcodecamera;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -13,7 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
+public class RegisterLogin extends AppCompatActivity implements View.OnClickListener {
 
     SQLiteDatabase db;
     Button btnLog, btnReg;
@@ -23,7 +23,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main2akc);
+        setContentView(R.layout.activity_register_login);
 
         btnLog = (Button) findViewById(R.id.btnLog);
         btnReg = (Button) findViewById(R.id.btnReg);
@@ -52,6 +52,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 Cursor c = db.rawQuery("SELECT * FROM Employee WHERE EmpName='" + etEmail.getText() + "' AND EmpMail='" +etPass.getText()+"'",  null);
                 if (c.moveToFirst()) {
+                    intent = new Intent("android.intent.action.qr");
+                    startActivity(intent);
                     etEmail.setText(c.getString(1));
                     etPass.setText(c.getString(2));
                 } else {
