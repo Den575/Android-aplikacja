@@ -11,6 +11,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".Zamowenie"
+            android:label="@string/title_activity_zamowenie"></activity>
         <activity android:name=".RegisterLogin">
             <intent-filter>
                 <action android:name="android.intent.action.RegisterLogin" />
@@ -18,7 +21,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".Splash" >
+        <activity android:name=".Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

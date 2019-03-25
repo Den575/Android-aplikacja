@@ -3,6 +3,7 @@ package dev.edmt.qrcodecamera;
 import android.*;
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Vibrator;
 import android.support.annotation.NonNull;
@@ -12,6 +13,8 @@ import android.os.Bundle;
 import android.util.SparseArray;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,13 +25,14 @@ import com.google.android.gms.vision.barcode.BarcodeDetector;
 
 import java.io.IOException;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     SurfaceView cameraPreview;
     TextView txtResult;
     BarcodeDetector barcodeDetector;
     CameraSource cameraSource;
     final int RequestCameraPermissionID = 1001;
+    Button btnNext;
 
 
     @Override
@@ -57,6 +61,9 @@ public class MainActivity extends AppCompatActivity {
 
         cameraPreview = (SurfaceView) findViewById(R.id.cameraPreview);
         txtResult = (TextView) findViewById(R.id.txtResult);
+        btnNext = (Button) findViewById(R.id.btnNext);
+        btnNext.setEnabled(false);
+        btnNext.setOnClickListener(this);
 
         barcodeDetector = new BarcodeDetector.Builder(this)
                 .setBarcodeFormats(Barcode.QR_CODE)
@@ -94,6 +101,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+
         barcodeDetector.setProcessor(new Detector.Processor<Barcode>() {
             @Override
             public void release() {
@@ -102,25 +111,56 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void receiveDetections(Detector.Detections<Barcode> detections) {
+                Intent intent;
                 final SparseArray<Barcode> qrcodes = detections.getDetectedItems();
-                if(qrcodes.size() != 0)
-                {
+                if(qrcodes.size() != 0){
                     txtResult.post(new Runnable() {
                         @Override
                         public void run() {
-                            //Create vibrate
                             Vibrator vibrator = (Vibrator)getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
                             vibrator.vibrate(50);
                             txtResult.setText(qrcodes.valueAt(0).displayValue);
-                            //String info = String.valueOf(txtResult.getText());
-                            String newinfo = String.valueOf(qrcodes.valueAt(0).displayValue);
-                            txtResult.setText(newinfo);
-                            //Toast toast = Toast.makeText(MainActivity.this,newinfo,Toast.LENGTH_LONG);
-                            //toast.show();
+                            String nrstolic = String.valueOf(qrcodes.valueAt(0).displayValue);
+                            txtResult.setText(nrstolic);
+                            if(nrstolic.equals("Table number 1 reserved")){
+                                btnNext.setEnabled(true);
+                            }
+                            else if(nrstolic.equals("Table number 2 reserved")){
+                                btnNext.setEnabled(true);
+                            }
+                            else if(nrstolic.equals("Table number 3 reserved")){
+                                btnNext.setEnabled(true);
+                            }
+                            else if(nrstolic.equals("Table number 4 reserved")){
+                                btnNext.setEnabled(true);
+                            }
+                            else if(nrstolic.equals("Table number 5 reserved")){
+                                btnNext.setEnabled(true);
+                            }
+                            else{
+                                txtResult.setText("Try again scan QrCode on your table");
+                            }
+
                         }
-                    });
+                    }
+                    );
                 }
             }
+
         });
+
+    }
+
+
+    @Override
+    public void onClick(View view) {
+        Intent intent;
+        intent = new Intent("android.intent.action.zamowienie");
+        startActivity(intent);
+    }
+
+    @Override
+    public void onBackPressed() {
+        // do nothing
     }
 }

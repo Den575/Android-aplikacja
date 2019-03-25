@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">App 1.0.3</string>
     <string name="result_text_default">Please focus camera to QR Code</string>
+    <string name="title_activity_zamowenie">Zamowenie</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>
