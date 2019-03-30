@@ -1,17 +1,17 @@
-package dev.edmt.qrcodecamera;
+package ng.com.obkm.bottomnavviewwithfragments;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import ng.com.obkm.bottomnavviewwithfragments.R;
 
 public class RegisterLogin extends AppCompatActivity implements View.OnClickListener {
 

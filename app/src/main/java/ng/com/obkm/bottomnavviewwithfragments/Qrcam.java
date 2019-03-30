@@ -1,15 +1,14 @@
-package dev.edmt.qrcodecamera;
+package ng.com.obkm.bottomnavviewwithfragments;
 
-import android.*;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.Bundle;
 import android.os.Vibrator;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.SparseArray;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -25,7 +24,9 @@ import com.google.android.gms.vision.barcode.BarcodeDetector;
 
 import java.io.IOException;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+import static android.view.Gravity.CENTER;
+
+public class Qrcam extends AppCompatActivity implements View.OnClickListener {
 
     SurfaceView cameraPreview;
     TextView txtResult;
@@ -41,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case RequestCameraPermissionID: {
                 if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-                         return;
+                        return;
                     }
                     try {
                         cameraSource.start(cameraPreview.getHolder());
@@ -49,21 +50,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         e.printStackTrace();
                     }
                 }
-           }
-           break;
-       }
+            }
+            break;
+        }
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.qr_cam);
 
         cameraPreview = (SurfaceView) findViewById(R.id.cameraPreview);
         txtResult = (TextView) findViewById(R.id.txtResult);
         btnNext = (Button) findViewById(R.id.btnNext);
         btnNext.setEnabled(false);
         btnNext.setOnClickListener(this);
+
+        Toast toast  = Toast.makeText(getApplicationContext(),"Please focus camera to QR Code",Toast.LENGTH_LONG);
+        toast.setGravity(CENTER, 0, 0);
+        toast.show();
 
         barcodeDetector = new BarcodeDetector.Builder(this)
                 .setBarcodeFormats(Barcode.QR_CODE)
@@ -76,9 +81,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         cameraPreview.getHolder().addCallback(new SurfaceHolder.Callback() {
             @Override
             public void surfaceCreated(SurfaceHolder surfaceHolder) {
-                if (ActivityCompat.checkSelfPermission(getApplicationContext(), android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+                if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
                     //Request permission
-                    ActivityCompat.requestPermissions(MainActivity.this,
+                    ActivityCompat.requestPermissions(Qrcam.this,
                             new String[]{Manifest.permission.CAMERA},RequestCameraPermissionID);
                     return;
                 }
@@ -115,34 +120,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 final SparseArray<Barcode> qrcodes = detections.getDetectedItems();
                 if(qrcodes.size() != 0){
                     txtResult.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            Vibrator vibrator = (Vibrator)getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
-                            vibrator.vibrate(50);
-                            txtResult.setText(qrcodes.valueAt(0).displayValue);
-                            String nrstolic = String.valueOf(qrcodes.valueAt(0).displayValue);
-                            txtResult.setText(nrstolic);
-                            if(nrstolic.equals("Table number 1 reserved")){
-                                btnNext.setEnabled(true);
-                            }
-                            else if(nrstolic.equals("Table number 2 reserved")){
-                                btnNext.setEnabled(true);
-                            }
-                            else if(nrstolic.equals("Table number 3 reserved")){
-                                btnNext.setEnabled(true);
-                            }
-                            else if(nrstolic.equals("Table number 4 reserved")){
-                                btnNext.setEnabled(true);
-                            }
-                            else if(nrstolic.equals("Table number 5 reserved")){
-                                btnNext.setEnabled(true);
-                            }
-                            else{
-                                txtResult.setText("Try again scan QrCode on your table");
-                            }
+                                       @Override
+                                       public void run() {
+                                           Vibrator vibrator = (Vibrator)getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
+                                           vibrator.vibrate(50);
+                                           txtResult.setText(qrcodes.valueAt(0).displayValue);
+                                           String nrstolic = String.valueOf(qrcodes.valueAt(0).displayValue);
+                                           txtResult.setText(nrstolic);
+                                           if(nrstolic.equals("Table number 1 reserved")){
+                                               btnNext.setEnabled(true);
+                                           }
+                                           else if(nrstolic.equals("Table number 2 reserved")){
+                                               btnNext.setEnabled(true);
+                                           }
+                                           else if(nrstolic.equals("Table number 3 reserved")){
+                                               btnNext.setEnabled(true);
+                                           }
+                                           else if(nrstolic.equals("Table number 4 reserved")){
+                                               btnNext.setEnabled(true);
+                                           }
+                                           else if(nrstolic.equals("Table number 5 reserved")){
+                                               btnNext.setEnabled(true);
+                                           }
+                                           else{
+                                               txtResult.setText("Try again scan QrCode on your table");
+                                           }
 
-                        }
-                    }
+                                       }
+                                   }
                     );
                 }
             }
@@ -155,8 +160,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         Intent intent;
-        intent = new Intent("android.intent.action.zamowienie");
-        startActivity(intent);
+        switch (view.getId()){
+            case R.id.btnNext:
+                intent = new Intent("android.intent.action.MAIN");
+                startActivity(intent);
+                break;
+            default:
+                break;
+        }
+
     }
 
     @Override
