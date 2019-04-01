@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.support.annotation.NonNull;
@@ -16,6 +17,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.database.Cursor;
 
 import com.google.android.gms.vision.CameraSource;
 import com.google.android.gms.vision.Detector;
@@ -28,6 +30,7 @@ import static android.view.Gravity.CENTER;
 
 public class Qrcam extends AppCompatActivity implements View.OnClickListener {
 
+    SQLiteDatabase db;
     SurfaceView cameraPreview;
     TextView txtResult;
     BarcodeDetector barcodeDetector;
@@ -65,6 +68,7 @@ public class Qrcam extends AppCompatActivity implements View.OnClickListener {
         btnNext = (Button) findViewById(R.id.btnNext);
         btnNext.setEnabled(false);
         btnNext.setOnClickListener(this);
+        db = openOrCreateDatabase("EmployeeDB", Context.MODE_PRIVATE, null);
 
         Toast toast  = Toast.makeText(getApplicationContext(),"Please focus camera to QR Code",Toast.LENGTH_LONG);
         toast.setGravity(CENTER, 0, 0);
@@ -123,24 +127,29 @@ public class Qrcam extends AppCompatActivity implements View.OnClickListener {
                                        @Override
                                        public void run() {
                                            Vibrator vibrator = (Vibrator)getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
-                                           vibrator.vibrate(50);
+                                           //vibrator.vibrate(50);
                                            txtResult.setText(qrcodes.valueAt(0).displayValue);
                                            String nrstolic = String.valueOf(qrcodes.valueAt(0).displayValue);
                                            txtResult.setText(nrstolic);
                                            if(nrstolic.equals("Table number 1 reserved")){
                                                btnNext.setEnabled(true);
+                                               vibrator.vibrate(50);
                                            }
                                            else if(nrstolic.equals("Table number 2 reserved")){
                                                btnNext.setEnabled(true);
+                                               vibrator.vibrate(50);
                                            }
                                            else if(nrstolic.equals("Table number 3 reserved")){
                                                btnNext.setEnabled(true);
+                                               vibrator.vibrate(50);
                                            }
                                            else if(nrstolic.equals("Table number 4 reserved")){
                                                btnNext.setEnabled(true);
+                                               vibrator.vibrate(50);
                                            }
                                            else if(nrstolic.equals("Table number 5 reserved")){
                                                btnNext.setEnabled(true);
+                                               vibrator.vibrate(50);
                                            }
                                            else{
                                                txtResult.setText("Try again scan QrCode on your table");
@@ -155,6 +164,10 @@ public class Qrcam extends AppCompatActivity implements View.OnClickListener {
         });
 
     }
+    public void msg(Context context,String str)
+    {
+        Toast.makeText(this,str,Toast.LENGTH_SHORT).show();
+    }
 
 
     @Override
@@ -162,6 +175,23 @@ public class Qrcam extends AppCompatActivity implements View.OnClickListener {
         Intent intent;
         switch (view.getId()){
             case R.id.btnNext:
+                //code for select all data
+                /*Cursor c=db.rawQuery("SELECT * FROM Employee", null);
+                if(c.getCount()==0)
+                {
+                    msg(this, "No records found");
+                    return;
+                }
+                StringBuffer buffer=new StringBuffer();
+                while(c.moveToNext())
+                {
+                    buffer.append("Employee Name: "+c.getString(1)+"\n");
+                    buffer.append("Employee Mail: "+c.getString(2)+"\n\n");
+                    //buffer.append("Employee Salary: "+c.getString(3)+"\n\n");
+                }
+                msg(this, buffer.toString());
+
+                */
                 intent = new Intent("android.intent.action.MAIN");
                 startActivity(intent);
                 break;
