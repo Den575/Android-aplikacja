@@ -194,6 +194,7 @@ public class Qrcam extends AppCompatActivity implements View.OnClickListener {
                 */
                 intent = new Intent("android.intent.action.MAIN");
                 startActivity(intent);
+
                 break;
             default:
                 break;

@@ -1,19 +1,24 @@
 package ng.com.obkm.bottomnavviewwithfragments;
 
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class NotificationsFragment extends Fragment {
+public class NotificationsFragment extends Fragment implements View.OnClickListener {
 
-
+    Button btnInfo,btnLogOut;
     public NotificationsFragment() {
         // Required empty public constructor
     }
@@ -24,7 +29,24 @@ public class NotificationsFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_notifications, container, false);
 
+        btnInfo = (Button) view.findViewById(R.id.btnInfo);
+        btnLogOut = (Button) view.findViewById(R.id.btnLogOut);
+        btnInfo.setOnClickListener(this);
+        btnLogOut.setOnClickListener(this);
         return view;
     }
 
+
+
+    @Override
+    public void onClick(View view) {
+        Intent intent;
+        switch (view.getId()){
+            case R.id.btnLogOut:
+                Toast.makeText(getActivity(), "Successful logout" , Toast.LENGTH_SHORT).show();
+                intent = new Intent("android.intent.action.RegisterLogin");
+                startActivity(intent);
+                break;
+        }
+    }
 }

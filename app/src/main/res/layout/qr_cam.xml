@@ -4,7 +4,7 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="dev.edmt.qrcodecamera.MainActivity">
+    tools:context="ng.com.obkm.bottomnavviewwithfragments.Qrcam">
 
     <TextView
         android:id="@+id/txtResult"
@@ -16,14 +16,14 @@
     <SurfaceView
         android:id="@+id/cameraPreview"
         android:layout_width="match_parent"
-        android:layout_height="470dp"
+        android:layout_height="490dp"
         android:layout_centerHorizontal="true" />
 
 
 
     <Button
         android:id="@+id/btnNext"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="18dp"
         android:layout_width="150dp"
         android:layout_height="40dp"
         android:layout_below="@+id/cameraPreview"
