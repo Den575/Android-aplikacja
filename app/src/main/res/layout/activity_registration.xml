@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backCOLOR">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="380dp"
+        android:layout_height="196dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="60dp"
+        android:src="@drawable/logregact" />
+
+
+    <EditText
+        android:id="@+id/etrName"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="180dp"
+        android:background="@drawable/edit_round"
+        android:drawablePadding="10dp"
+        android:hint="Name"
+        android:inputType="text"
+        android:paddingLeft="10dp" />
+
+    <EditText
+        android:id="@+id/etrSurname"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/etrName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/edit_round"
+        android:drawablePadding="10dp"
+        android:hint="Surname"
+        android:inputType="text"
+        android:paddingLeft="10dp" />
+
+
+    <EditText
+        android:id="@+id/etrEmail"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/etrSurname"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/edit_round"
+        android:drawablePadding="10dp"
+        android:hint="E-mail"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="10dp" />
+
+    <EditText
+        android:id="@+id/etrPass"
+        android:background="@drawable/edit_round"
+        android:paddingLeft="10dp"
+        android:drawablePadding="10dp"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/etrEmail"
+        android:layout_marginTop="10dp"
+        android:hint="Password"
+        android:inputType="textPassword"/>
+
+
+
+    <Button
+        android:id="@+id/btnRegister"
+        android:background="@drawable/button_round"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/checkBox"
+        android:text="Register"
+        android:textAllCaps="false"
+        android:layout_marginTop="20dp"
+        />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        style="@android:style/Widget.CompoundButton.CheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etrPass"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:focusable="auto"
+        android:text="Confirm" />
+
+</RelativeLayout>

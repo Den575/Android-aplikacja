@@ -33,8 +33,7 @@ public class RegisterLogin extends AppCompatActivity implements View.OnClickList
         etEmail = (EditText) findViewById(R.id.etEmail);
         etPass = (EditText) findViewById(R.id.etPass);
 
-        db = openOrCreateDatabase("EmployeeDB", Context.MODE_PRIVATE, null);
-        db.execSQL("CREATE TABLE IF NOT EXISTS Employee(EmpId INTEGER PRIMARY KEY AUTOINCREMENT, EmpName VARCHAR, EmpMail VARCHAR); ");
+        db = openOrCreateDatabase("usersDB", Context.MODE_PRIVATE, null);
     }
 
     public void msg(Context context, String str) {
@@ -50,7 +49,7 @@ public class RegisterLogin extends AppCompatActivity implements View.OnClickList
                     msg(this, "Enter E-mail and Password");
                     return;
                 }
-                Cursor c = db.rawQuery("SELECT * FROM Employee WHERE EmpName='" + etEmail.getText() + "' AND EmpMail='" +etPass.getText()+"'",  null);
+                Cursor c = db.rawQuery("SELECT * FROM Users WHERE UsrEmail='" + etEmail.getText() + "' AND UsrPass='" +etPass.getText()+"'",  null);
                 if (c.moveToFirst()) {
                     intent = new Intent("android.intent.action.qr");
                     startActivity(intent);
@@ -61,13 +60,8 @@ public class RegisterLogin extends AppCompatActivity implements View.OnClickList
                 }
                 break;
             case R.id.btnReg:
-                if (etEmail.getText().toString().trim().length() == 0 ||
-                        etPass.getText().toString().trim().length() == 0) {
-                    msg(this, "Please enter all values");
-                    return;
-                }
-                db.execSQL("INSERT INTO Employee(EmpName,EmpMail)VALUES('" + etEmail.getText() + "','" + etPass.getText() + "');");
-                msg(this, "User has been successfully registered");
+                intent = new Intent("android.intent.action.Registration");
+                startActivity(intent);
                 break;
             default:
                 break;

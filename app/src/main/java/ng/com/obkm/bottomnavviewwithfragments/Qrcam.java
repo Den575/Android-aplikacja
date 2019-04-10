@@ -68,7 +68,7 @@ public class Qrcam extends AppCompatActivity implements View.OnClickListener {
         btnNext = (Button) findViewById(R.id.btnNext);
         btnNext.setEnabled(false);
         btnNext.setOnClickListener(this);
-        db = openOrCreateDatabase("EmployeeDB", Context.MODE_PRIVATE, null);
+        db = openOrCreateDatabase("Users", Context.MODE_PRIVATE, null);
 
         Toast toast  = Toast.makeText(getApplicationContext(),"Please focus camera to QR Code",Toast.LENGTH_LONG);
         toast.setGravity(CENTER, 0, 0);
@@ -133,7 +133,7 @@ public class Qrcam extends AppCompatActivity implements View.OnClickListener {
                                            txtResult.setText(nrstolic);
                                            if(nrstolic.equals("Table number 1 reserved")){
                                                btnNext.setEnabled(true);
-                                               vibrator.vibrate(50);
+                                               vibrator.vibrate(20);
                                            }
                                            else if(nrstolic.equals("Table number 2 reserved")){
                                                btnNext.setEnabled(true);
