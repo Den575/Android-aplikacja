@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
 </head>
 <body>
 <h1>Reserve&Eat</h1>
@@ -9,9 +14,14 @@
     <footer><i>Denis Kutsenko</i></footer>
   </blockquote>
 <a href="https://den575.github.io/">Web page</a>
-<p id="align">
 <img src="app.png">
-</p>
+<div class="progress">
+    <div class="progress-bar progress-bar-success progress-bar-striped active"  role="progressbar" aria-valuenow="40"
+            aria-valuemin="0" aria-valuemax="100" style="width:65%">
+          65% Complete
+      </div>
+
+    </div>
 
 </body>
 </html>
