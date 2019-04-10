@@ -9,6 +9,6 @@
     <footer><i>Denis Kutsenko</i></footer>
   </blockquote>
 <a href="https://den575.github.io/">Web page</a>
-<img src="app.png">
+<img src="app1.png">
 </body>
 </html>
