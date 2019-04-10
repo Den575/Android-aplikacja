@@ -1,12 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<style type="text/css">
-		#align{
-			text-align: center;
-		}
-	</style>
-	<title>Reserve&Eat</title>
 </head>
 <body>
 <h1>Reserve&Eat</h1>
