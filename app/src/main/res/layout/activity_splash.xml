@@ -8,9 +8,9 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="494dp"
-        android:layout_height="228dp"
+        android:layout_height="285dp"
         android:layout_gravity="center"
-        android:layout_marginBottom="60dp"
-        app:srcCompat="@drawable/logo1024" />
+        android:layout_marginBottom="50dp"
+        app:srcCompat="@drawable/rande" />
 
 </FrameLayout>
