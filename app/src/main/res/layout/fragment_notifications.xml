@@ -10,32 +10,35 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
+        android:layout_marginLeft="40dp"
         android:layout_marginTop="180dp"
-        android:fontFamily="sans-serif-thin"
+        android:fontFamily="sans-serif-black"
         android:text="Name:                 Denis"
         android:textSize="25dp"
-        android:textStyle="bold|italic" />
+        android:textColor="#000000"
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
+        android:layout_marginLeft="40dp"
         android:layout_marginTop="220dp"
-        android:fontFamily="sans-serif-thin"
+        android:fontFamily="sans-serif-black"
         android:text="Surname:           Kutsenko"
         android:textSize="25dp"
-        android:textStyle="bold|italic" />
+        android:textColor="#000000"
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
+        android:layout_marginLeft="40dp"
         android:layout_marginTop="260dp"
-        android:fontFamily="sans-serif-thin"
-        android:text="City:                    Krakow"
+        android:fontFamily="sans-serif-black"
+        android:text="City:                     Krakow"
         android:textSize="25dp"
-        android:textStyle="bold|italic" />
+        android:textColor="#000000"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/btnInfo"
