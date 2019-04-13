@@ -3,6 +3,8 @@ package ng.com.obkm.bottomnavviewwithfragments;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.Gravity;
@@ -13,9 +15,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 
-/**
- * A simple {@link Fragment} subclass.
- */
+
 public class NotificationsFragment extends Fragment implements View.OnClickListener {
 
     Button btnInfo,btnLogOut;
@@ -33,6 +33,8 @@ public class NotificationsFragment extends Fragment implements View.OnClickListe
         btnLogOut = (Button) view.findViewById(R.id.btnLogOut);
         btnInfo.setOnClickListener(this);
         btnLogOut.setOnClickListener(this);
+
+
         return view;
     }
 
@@ -46,6 +48,12 @@ public class NotificationsFragment extends Fragment implements View.OnClickListe
                 Toast.makeText(getActivity(), "Successful logout" , Toast.LENGTH_SHORT).show();
                 intent = new Intent("android.intent.action.RegisterLogin");
                 startActivity(intent);
+                break;
+            case R.id.btnInfo:
+                intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://den575.github.io/"));
+                startActivity(intent);
+                break;
+            default:
                 break;
         }
     }

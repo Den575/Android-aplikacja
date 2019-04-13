@@ -30,7 +30,6 @@ import static android.view.Gravity.CENTER;
 
 public class Qrcam extends AppCompatActivity implements View.OnClickListener {
 
-    SQLiteDatabase db;
     SurfaceView cameraPreview;
     TextView txtResult;
     BarcodeDetector barcodeDetector;
@@ -68,7 +67,6 @@ public class Qrcam extends AppCompatActivity implements View.OnClickListener {
         btnNext = (Button) findViewById(R.id.btnNext);
         btnNext.setEnabled(false);
         btnNext.setOnClickListener(this);
-        db = openOrCreateDatabase("Users", Context.MODE_PRIVATE, null);
 
         Toast toast  = Toast.makeText(getApplicationContext(),"Please focus camera to QR Code",Toast.LENGTH_LONG);
         toast.setGravity(CENTER, 0, 0);
@@ -173,25 +171,10 @@ public class Qrcam extends AppCompatActivity implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         Intent intent;
+        //Intent intent1 = getIntent();
+        //String mail = intent1.getStringExtra("email");
         switch (view.getId()){
             case R.id.btnNext:
-                //code for select all data
-                /*Cursor c=db.rawQuery("SELECT * FROM Employee", null);
-                if(c.getCount()==0)
-                {
-                    msg(this, "No records found");
-                    return;
-                }
-                StringBuffer buffer=new StringBuffer();
-                while(c.moveToNext())
-                {
-                    buffer.append("Employee Name: "+c.getString(1)+"\n");
-                    buffer.append("Employee Mail: "+c.getString(2)+"\n\n");
-                    //buffer.append("Employee Salary: "+c.getString(3)+"\n\n");
-                }
-                msg(this, buffer.toString());
-
-                */
                 intent = new Intent("android.intent.action.MAIN");
                 startActivity(intent);
 
@@ -201,6 +184,7 @@ public class Qrcam extends AppCompatActivity implements View.OnClickListener {
         }
 
     }
+
 
     @Override
     public void onBackPressed() {
