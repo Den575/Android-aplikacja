@@ -9,7 +9,10 @@
     <footer><i>Denis Kutsenko</i></footer>
   </blockquote>
 <a href="https://den575.github.io/">Web page</a>
-<img src="QRcode/app1.png">
-<img src="QRcode/app2.png">
+<img src="QRcode\app1.png">
+<img src="QRcode\app2.png">
+<img src="QRcode\app3.png">
+<img src="QRcode\app4.png">
+<img src="QRcode\app5.png">
 </body>
 </html>
