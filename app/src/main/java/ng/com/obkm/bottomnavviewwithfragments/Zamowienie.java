@@ -1,5 +1,6 @@
 package ng.com.obkm.bottomnavviewwithfragments;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,13 +11,13 @@ import android.widget.TextView;
 public class Zamowienie extends AppCompatActivity implements View.OnClickListener {
 
     TextView tvhamburger, tvCena, tvCheeseburger, tvRB, tvCB;
-    Button btnHamburger, btnOrder, btnCheeseburger, btnRB, btnCB;
+    Button btnHamburger, btnOczysc, btnCheeseburger, btnRB, btnCB, btnNapoje;
     SeekBar sbHamburger, sbCheeseburger, sbRB, sbCB;
     int ilHamburger = 0;
     int ilCheeseburger = 0;
     int ilRB = 0;
     int ilCB = 0;
-    int cena =0;
+    double cena =0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,16 +40,18 @@ public class Zamowienie extends AppCompatActivity implements View.OnClickListene
         tvCena = (TextView) findViewById(R.id.cena);
 
         btnHamburger = (Button) findViewById(R.id.btnhumburger);
-        btnOrder = (Button) findViewById(R.id.btnOrder);
+        btnOczysc = (Button) findViewById(R.id.btnOczysc);
         btnCheeseburger = (Button) findViewById(R.id.btnCheeseburger);
         btnRB = (Button) findViewById(R.id.btnRB);
         btnCB = (Button) findViewById(R.id.btnCB);
+        btnNapoje = (Button) findViewById(R.id.btnNapoje);
 
         btnHamburger.setOnClickListener(this);
-        btnOrder.setOnClickListener(this);
+        btnOczysc.setOnClickListener(this);
         btnCheeseburger.setOnClickListener(this);
         btnRB.setOnClickListener(this);
         btnCB.setOnClickListener(this);
+        btnNapoje.setOnClickListener(this);
 
         sbCB.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -129,19 +132,31 @@ public class Zamowienie extends AppCompatActivity implements View.OnClickListene
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btnhumburger:
-                cena+=ilHamburger;
+                cena+=(double) Math.round((ilHamburger*6.99)*100)/100;
                 tvCena.setText("Do opłaty: "+ String.valueOf(cena)+" zł");
                 break;
             case R.id.btnCheeseburger:
-                cena+=ilCheeseburger;
+                cena+=ilCheeseburger*8;
+                cena+=(double) Math.round((ilCheeseburger*8)*100)/100;
                 tvCena.setText("Do opłaty: "+ String.valueOf(cena)+" zł");
                 break;
             case R.id.btnRB:
-                cena+=ilRB;
+                cena+=(double) Math.round((ilRB*12)*100)/100;
                 tvCena.setText("Do opłaty: "+ String.valueOf(cena)+" zł");
+                break;
             case R.id.btnCB:
-                cena+=ilCB;
+                cena+=(double) Math.round((ilCB*13.99)*100)/100;
                 tvCena.setText("Do opłaty: "+ String.valueOf(cena)+" zł");
+                break;
+            case R.id.btnOczysc:
+                cena=0;
+                tvCena.setText("Do opłaty: "+ String.valueOf(cena)+" zł");
+                break;
+            case R.id.btnNapoje:
+                Intent intent;
+                intent = new Intent("android.intent.action.Napoje");
+                startActivity(intent);
+
         }
     }
 }
