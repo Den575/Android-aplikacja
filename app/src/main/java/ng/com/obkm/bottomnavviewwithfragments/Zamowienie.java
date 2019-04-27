@@ -153,9 +153,11 @@ public class Zamowienie extends AppCompatActivity implements View.OnClickListene
                 tvCena.setText("Do opłaty: "+ String.valueOf(cena)+" zł");
                 break;
             case R.id.btnNapoje:
-                Intent intent;
-                intent = new Intent("android.intent.action.Napoje");
+                Intent intent = new Intent(this,Napoje.class);
+                String old = String.valueOf(cena);
+                intent.putExtra("cena",old);
                 startActivity(intent);
+                break;
 
         }
     }

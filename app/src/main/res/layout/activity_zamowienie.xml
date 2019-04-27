@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:text="Do opłaty: 0 zł"
         android:textSize="23dp"
-        android:layout_marginLeft="90dp"
+        android:layout_marginLeft="80dp"
         android:textColor="@color/colorPrimary"
         android:textAlignment="center"
         android:id="@+id/cena"
