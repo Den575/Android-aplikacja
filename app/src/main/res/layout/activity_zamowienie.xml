@@ -12,11 +12,12 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Menu"
-        android:textSize="25dp"
-        android:layout_marginLeft="130dp"
+        android:text="Do opłaty: 0 zł"
+        android:textSize="23dp"
+        android:layout_marginLeft="90dp"
         android:textColor="@color/colorPrimary"
         android:textAlignment="center"
+        android:id="@+id/cena"
         />
 
 
@@ -32,11 +33,22 @@
             <TextView
                 android:id="@+id/tvhamburder"
                 android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
                 android:layout_height="wrap_content"
                 android:text="Hamburger"
                 android:textSize="20dp"/>
 
+            <TextView
+                android:layout_width="188dp"
+                android:layout_height="55dp"
+                android:layout_marginLeft="250dp"
+                android:layout_marginTop="40dp"
+                android:text="8 zł"
+                android:textColor="@color/colorPrimary"
+                android:textSize="20dp" />
+
             <ImageView
+                android:layout_marginTop="10dp"
                 android:layout_width="186dp"
                 android:layout_height="221dp"
                 android:layout_marginLeft="70dp"
@@ -61,18 +73,100 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="400dp"
-                android:text="TEXT"
-                android:textSize="40dp"
-                android:layout_marginLeft="100dp"
-                android:id="@+id/cena"/>
+                android:text="Cheeseburger"
+                android:layout_marginTop="250dp"
+                android:textSize="20dp"
+                android:id="@+id/tvCheeseburger"/>
+
+            <ImageView
+                android:layout_width="220dp"
+                android:layout_height="193dp"
+                android:layout_marginLeft="55dp"
+                android:layout_marginTop="250dp"
+                android:src="@drawable/zamowienie2" />
+
+            <SeekBar
+                android:id="@+id/sbCheeseburger"
+                android:layout_width="218dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="410dp"
+                android:layout_weight="2" />
+
+            <Button
+                android:layout_width="74dp"
+                android:layout_height="34dp"
+                android:layout_marginLeft="240dp"
+                android:layout_marginTop="410dp"
+                android:background="@drawable/button_round"
+                android:text="Add"
+                android:id="@+id/btnCheeseburger"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Royal burger"
+                android:layout_marginTop="450dp"
+                android:textSize="20dp"
+                android:id="@+id/tvRB"/>
+
+            <ImageView
+                android:layout_width="220dp"
+                android:layout_height="193dp"
+                android:layout_marginLeft="55dp"
+                android:layout_marginTop="480dp"
+                android:src="@drawable/zamowienie3" />
+
+            <SeekBar
+                android:id="@+id/sbRB"
+                android:layout_width="218dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="660dp" />
+
+            <Button
+                android:layout_width="74dp"
+                android:layout_height="34dp"
+                android:layout_marginLeft="240dp"
+                android:layout_marginTop="660dp"
+                android:background="@drawable/button_round"
+                android:text="Add"
+                android:id="@+id/btnRB"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Chicken burger"
+                android:layout_marginTop="700dp"
+                android:textSize="20dp"
+                android:id="@+id/tvCB"/>
+
+            <ImageView
+                android:layout_width="220dp"
+                android:layout_height="193dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="700dp"
+                android:src="@drawable/zamowienie4" />
+
+            <SeekBar
+                android:id="@+id/sbCB"
+                android:layout_width="218dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="870dp" />
+
+            <Button
+                android:layout_width="74dp"
+                android:layout_height="34dp"
+                android:layout_marginLeft="240dp"
+                android:layout_marginTop="870dp"
+                android:background="@drawable/button_round"
+                android:text="Add"
+                android:id="@+id/btnCB"/>
 
             <Button
                 android:id="@+id/btnOrder"
                 android:layout_width="wrap_content"
                 android:layout_height="33dp"
                 android:layout_marginLeft="110dp"
-                android:layout_marginTop="460dp"
+                android:layout_marginTop="960dp"
                 android:background="@drawable/button_round"
                 android:text="Order" />
 

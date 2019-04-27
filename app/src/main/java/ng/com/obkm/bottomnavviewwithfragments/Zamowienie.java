@@ -9,10 +9,13 @@ import android.widget.TextView;
 
 public class Zamowienie extends AppCompatActivity implements View.OnClickListener {
 
-    TextView tvhamburger, tvCena;
-    Button btnHamburger, btnOrder;
-    SeekBar sbHamburger;
-    int ilH = 0;
+    TextView tvhamburger, tvCena, tvCheeseburger, tvRB, tvCB;
+    Button btnHamburger, btnOrder, btnCheeseburger, btnRB, btnCB;
+    SeekBar sbHamburger, sbCheeseburger, sbRB, sbCB;
+    int ilHamburger = 0;
+    int ilCheeseburger = 0;
+    int ilRB = 0;
+    int ilCB = 0;
     int cena =0;
 
     @Override
@@ -21,23 +24,91 @@ public class Zamowienie extends AppCompatActivity implements View.OnClickListene
         setContentView(R.layout.activity_zamowienie);
 
         sbHamburger = (SeekBar) findViewById(R.id.sbhamburger);
-        sbHamburger.setMax(5);
+        sbCheeseburger = (SeekBar) findViewById(R.id.sbCheeseburger);
+        sbRB = (SeekBar) findViewById(R.id.sbRB);
+        sbCB = (SeekBar) findViewById(R.id.sbCB);
+        sbHamburger.setMax(10);
+        sbCheeseburger.setMax(10);
+        sbRB.setMax(10);
+        sbCB.setMax(10);
 
         tvhamburger = (TextView) findViewById(R.id.tvhamburder);
-        tvhamburger.setText("Hamburger: 0");
+        tvCheeseburger = (TextView) findViewById(R.id.tvCheeseburger);
+        tvRB = (TextView) findViewById(R.id.tvRB);
+        tvCB = (TextView) findViewById(R.id.tvCB);
         tvCena = (TextView) findViewById(R.id.cena);
 
         btnHamburger = (Button) findViewById(R.id.btnhumburger);
         btnOrder = (Button) findViewById(R.id.btnOrder);
+        btnCheeseburger = (Button) findViewById(R.id.btnCheeseburger);
+        btnRB = (Button) findViewById(R.id.btnRB);
+        btnCB = (Button) findViewById(R.id.btnCB);
 
         btnHamburger.setOnClickListener(this);
         btnOrder.setOnClickListener(this);
+        btnCheeseburger.setOnClickListener(this);
+        btnRB.setOnClickListener(this);
+        btnCB.setOnClickListener(this);
+
+        sbCB.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                ilCB = i;
+                tvCB.setText("Chicken burger: " +String.valueOf(ilCB));
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+        sbRB.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                ilRB = i;
+                tvRB.setText("Royal burger: "+ String.valueOf(ilRB));
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+        sbCheeseburger.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                ilCheeseburger = i;
+                tvCheeseburger.setText("Cheeseburger: "+ String.valueOf(ilCheeseburger));
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
 
         sbHamburger.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                ilH = i;
-                tvhamburger.setText("Hamburger: " + String.valueOf(ilH));
+                ilHamburger = i;
+                tvhamburger.setText("Hamburger: " + String.valueOf(ilHamburger));
             }
 
             @Override
@@ -52,12 +123,25 @@ public class Zamowienie extends AppCompatActivity implements View.OnClickListene
         });
     }
 
+
+
     @Override
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btnhumburger:
-                cena+=ilH;
-                tvCena.setText(String.valueOf(cena)+"zł");
+                cena+=ilHamburger;
+                tvCena.setText("Do opłaty: "+ String.valueOf(cena)+" zł");
+                break;
+            case R.id.btnCheeseburger:
+                cena+=ilCheeseburger;
+                tvCena.setText("Do opłaty: "+ String.valueOf(cena)+" zł");
+                break;
+            case R.id.btnRB:
+                cena+=ilRB;
+                tvCena.setText("Do opłaty: "+ String.valueOf(cena)+" zł");
+            case R.id.btnCB:
+                cena+=ilCB;
+                tvCena.setText("Do opłaty: "+ String.valueOf(cena)+" zł");
         }
     }
 }
