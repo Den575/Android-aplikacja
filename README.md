@@ -14,5 +14,8 @@
 <img src="QRcode\app3.png">
 <img src="QRcode\app4.png">
 <img src="QRcode\app5.png">
+<img src="QRcode\app6.png">
+<img src="QRcode\app7.png">
+<img src="QRcode\app8.png">
 </body>
 </html>
