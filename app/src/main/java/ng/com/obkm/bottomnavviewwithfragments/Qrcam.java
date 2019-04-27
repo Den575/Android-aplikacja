@@ -131,7 +131,7 @@ public class Qrcam extends AppCompatActivity implements View.OnClickListener {
                                            txtResult.setText(nrstolic);
                                            if(nrstolic.equals("Table number 1 reserved")){
                                                btnNext.setEnabled(true);
-                                               vibrator.vibrate(20);
+                                               vibrator.vibrate(50);
                                            }
                                            else if(nrstolic.equals("Table number 2 reserved")){
                                                btnNext.setEnabled(true);
