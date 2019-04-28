@@ -1,9 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/newcolor"
     android:layout_height="match_parent"
-    tools:context=".Zaplac">
+    android:orientation="vertical"
+    tools:context="ng.com.obkm.bottomnavviewwithfragments.Zamowienie">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Suma do zapłaty: 0 zł"
+        android:textSize="23dp"
+        android:layout_marginLeft="70dp"
+        android:textColor="#FFFFFF"
+        android:textAlignment="center"
+        android:id="@+id/zaplata"
+        />
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:background="#FFFFFF"
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView"
+        android:layout_gravity="center_horizontal" >
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Numer karty"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:textSize="24dp"/>
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="35dp"
+                android:hint="1111 1111 1111 1111 "
+                android:inputType="number"
+                android:textSize="24dp"
+                android:id="@+id/nrkarty"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="110dp"
+                android:layout_marginLeft="10dp"
+                android:text="Data ważności karty"
+                android:textSize="24dp"/>
+
+            <EditText
+                android:layout_width="137dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="140dp"
+                android:hint="8/21"
+                android:inputType="date"
+                android:textSize="24dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="200dp"
+                android:text="CVC"
+                android:textSize="24dp"
+                android:layout_marginLeft="10dp"
+                android:id="@+id/data"/>
+
+            <EditText
+                android:layout_width="69dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="230dp"
+                android:hint="123"
+                android:textSize="24dp"
+                android:id="@+id/cvc"/>
+
+            <Button
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:text="Anuluj płatność"
+                android:layout_marginTop="310dp"
+                android:background="@drawable/button_round"
+                android:layout_marginLeft="10dp"
+                android:textSize="14dp"
+                android:id="@+id/btnZero"/>
+
+            <Button
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:text="Zapłać"
+                android:layout_marginLeft="190dp"
+                android:background="@drawable/button_round"
+                android:layout_marginTop="310dp"
+                android:textSize="14dp"
+                android:id="@+id/btnZaplac"/>
+
+
+
+        </FrameLayout>
+    </ScrollView>
+</LinearLayout>
