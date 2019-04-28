@@ -2,20 +2,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/newcolor"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
     android:orientation="vertical"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="ng.com.obkm.bottomnavviewwithfragments.Zamowienie">
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Do opłaty: 0 zł"
+        android:text="Do zapłaty: 0 zł"
         android:textSize="23dp"
-        android:layout_marginLeft="80dp"
-        android:textColor="@color/colorPrimary"
+        android:layout_marginLeft="100dp"
+        android:textColor="#FFFFFF"
         android:textAlignment="center"
         android:id="@+id/cena"
         />
@@ -23,6 +21,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
+        android:background="#FFFFFF"
         android:layout_height="match_parent"
         android:id="@+id/scrollView"
         android:layout_gravity="center_horizontal" >
@@ -34,6 +33,7 @@
                 android:id="@+id/tvhamburder"
                 android:layout_width="match_parent"
                 android:layout_marginTop="10dp"
+                android:layout_marginLeft="20dp"
                 android:layout_height="wrap_content"
                 android:text="Hamburger"
                 android:textSize="20dp"/>
@@ -41,7 +41,7 @@
             <TextView
                 android:layout_width="188dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="250dp"
+                android:layout_marginLeft="270dp"
                 android:layout_marginTop="40dp"
                 android:text="6,99 zł"
                 android:textColor="@color/colorPrimary"
@@ -51,12 +51,13 @@
                 android:layout_marginTop="10dp"
                 android:layout_width="186dp"
                 android:layout_height="221dp"
-                android:layout_marginLeft="70dp"
+                android:layout_marginLeft="90dp"
                 android:src="@drawable/zamowienie1" />
 
             <SeekBar
                 android:id="@+id/sbhamburger"
                 android:layout_width="218dp"
+                android:layout_marginLeft="20dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="190dp"
                 android:layout_weight="2" />
@@ -64,23 +65,25 @@
             <Button
                 android:layout_width="74dp"
                 android:layout_height="34dp"
-                android:layout_marginLeft="240dp"
+                android:layout_marginLeft="260dp"
                 android:layout_marginTop="190dp"
                 android:background="@drawable/button_round"
                 android:text="Add"
+                android:textColor="#FFFFFF"
                 android:id="@+id/btnhumburger"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Cheeseburger"
+                android:layout_marginLeft="20dp"
                 android:layout_marginTop="250dp"
                 android:textSize="20dp"
                 android:id="@+id/tvCheeseburger"/>
             <TextView
                 android:layout_width="188dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="250dp"
+                android:layout_marginLeft="270dp"
                 android:layout_marginTop="280dp"
                 android:text="8 zł"
                 android:textColor="@color/colorPrimary"
@@ -89,13 +92,14 @@
             <ImageView
                 android:layout_width="220dp"
                 android:layout_height="193dp"
-                android:layout_marginLeft="55dp"
+                android:layout_marginLeft="75dp"
                 android:layout_marginTop="250dp"
                 android:src="@drawable/zamowienie2" />
 
             <SeekBar
                 android:id="@+id/sbCheeseburger"
                 android:layout_width="218dp"
+                android:layout_marginLeft="20dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="410dp"
                 android:layout_weight="2" />
@@ -103,23 +107,25 @@
             <Button
                 android:layout_width="74dp"
                 android:layout_height="34dp"
-                android:layout_marginLeft="240dp"
+                android:layout_marginLeft="260dp"
                 android:layout_marginTop="410dp"
                 android:background="@drawable/button_round"
                 android:text="Add"
+                android:textColor="#FFFFFF"
                 android:id="@+id/btnCheeseburger"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Royal burger"
+                android:layout_marginLeft="20dp"
                 android:layout_marginTop="450dp"
                 android:textSize="20dp"
                 android:id="@+id/tvRB"/>
             <TextView
                 android:layout_width="188dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="250dp"
+                android:layout_marginLeft="270dp"
                 android:layout_marginTop="480dp"
                 android:text="12 zł"
                 android:textColor="@color/colorPrimary"
@@ -128,21 +134,23 @@
             <ImageView
                 android:layout_width="220dp"
                 android:layout_height="193dp"
-                android:layout_marginLeft="55dp"
+                android:layout_marginLeft="75dp"
                 android:layout_marginTop="480dp"
                 android:src="@drawable/zamowienie3" />
 
             <SeekBar
                 android:id="@+id/sbRB"
                 android:layout_width="218dp"
+                android:layout_marginLeft="20dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="660dp" />
 
             <Button
                 android:layout_width="74dp"
                 android:layout_height="34dp"
-                android:layout_marginLeft="240dp"
+                android:layout_marginLeft="260dp"
                 android:layout_marginTop="660dp"
+                android:textColor="#FFFFFF"
                 android:background="@drawable/button_round"
                 android:text="Add"
                 android:id="@+id/btnRB"/>
@@ -151,13 +159,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Chicken burger"
+                android:layout_marginLeft="20dp"
                 android:layout_marginTop="700dp"
                 android:textSize="20dp"
                 android:id="@+id/tvCB"/>
             <TextView
                 android:layout_width="188dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="250dp"
+                android:layout_marginLeft="270dp"
                 android:layout_marginTop="730dp"
                 android:text="13,99 zł"
                 android:textColor="@color/colorPrimary"
@@ -166,42 +175,46 @@
             <ImageView
                 android:layout_width="220dp"
                 android:layout_height="193dp"
-                android:layout_marginLeft="50dp"
+                android:layout_marginLeft="80dp"
                 android:layout_marginTop="700dp"
                 android:src="@drawable/zamowienie4" />
 
             <SeekBar
                 android:id="@+id/sbCB"
                 android:layout_width="218dp"
+                android:layout_marginLeft="20dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="870dp" />
 
             <Button
                 android:layout_width="74dp"
                 android:layout_height="34dp"
-                android:layout_marginLeft="240dp"
+                android:layout_marginLeft="260dp"
                 android:layout_marginTop="870dp"
                 android:background="@drawable/button_round"
                 android:text="Add"
+                android:textColor="#FFFFFF"
                 android:id="@+id/btnCB"/>
 
             <Button
                 android:id="@+id/btnOczysc"
-                android:layout_width="123dp"
+                android:layout_width="150dp"
                 android:layout_height="33dp"
-                android:layout_marginLeft="30dp"
+                android:layout_marginLeft="20dp"
                 android:layout_marginTop="950dp"
                 android:background="@drawable/button_round"
-                android:text="Anuluj" />
+                android:text="Anuluj"
+                android:layout_marginBottom="5dp"/>
 
             <Button
                 android:id="@+id/btnNapoje"
-                android:layout_width="123dp"
+                android:layout_width="150dp"
                 android:layout_height="33dp"
-                android:layout_marginLeft="170dp"
+                android:layout_marginLeft="184dp"
                 android:layout_marginTop="950dp"
                 android:background="@drawable/button_round"
-                android:text="Dodać napoje" />
+                android:text="Dodać napoje"
+                android:layout_marginBottom="5dp"/>
 
         </FrameLayout>
     </ScrollView>

@@ -17,7 +17,6 @@
         <activity android:name=".Napoje">
             <intent-filter>
                 <action android:name="android.intent.action.Napoje" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>

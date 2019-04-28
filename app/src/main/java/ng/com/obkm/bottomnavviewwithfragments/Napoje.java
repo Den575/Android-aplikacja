@@ -41,9 +41,9 @@ public class Napoje extends AppCompatActivity implements View.OnClickListener {
         sbCC = (SeekBar) findViewById(R.id.sbCC);
         sbFa = (SeekBar) findViewById(R.id.sbFa);
         sbSp = (SeekBar) findViewById(R.id.sbSp);
-        sbCC.setMax(15);
-        sbFa.setMax(15);
-        sbSp.setMax(15);
+        sbCC.setMax(10);
+        sbFa.setMax(10);
+        sbSp.setMax(10);
 
         Intent intent = getIntent();
         String oldcena = intent.getStringExtra("cena");
@@ -56,6 +56,10 @@ public class Napoje extends AppCompatActivity implements View.OnClickListener {
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                 liC = i;
                 tvCC.setText("Coca-cola: "+String.valueOf(liC));
+                tvCC.setTextColor(getResources().getColor(R.color.colorPrimary));
+                if(i==0){
+                    tvCC.setTextColor(getResources().getColor(R.color.bd));
+                }
             }
 
             @Override
@@ -74,6 +78,10 @@ public class Napoje extends AppCompatActivity implements View.OnClickListener {
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                 liF = i;
                 tvFa.setText("Fanta: "+String.valueOf(liF));
+                tvFa.setTextColor(getResources().getColor(R.color.colorPrimary));
+                if(i==0){
+                    tvFa.setTextColor(getResources().getColor(R.color.bd));
+                }
             }
 
             @Override
@@ -92,6 +100,10 @@ public class Napoje extends AppCompatActivity implements View.OnClickListener {
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                 liS = i;
                 tvSp.setText("Sprite: "+String.valueOf(liS));
+                tvSp.setTextColor(getResources().getColor(R.color.colorPrimary));
+                if(i==0){
+                    tvSp.setTextColor(getResources().getColor(R.color.bd));
+                }
             }
 
             @Override

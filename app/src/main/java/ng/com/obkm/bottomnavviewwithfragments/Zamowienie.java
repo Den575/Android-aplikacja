@@ -58,6 +58,11 @@ public class Zamowienie extends AppCompatActivity implements View.OnClickListene
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                 ilCB = i;
                 tvCB.setText("Chicken burger: " +String.valueOf(ilCB));
+                tvCB.setTextColor(getResources().getColor(R.color.colorPrimary));
+                if(i==0){
+                    tvCB.setTextColor(getResources().getColor(R.color.bd));
+                }
+
             }
 
             @Override
@@ -76,6 +81,10 @@ public class Zamowienie extends AppCompatActivity implements View.OnClickListene
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                 ilRB = i;
                 tvRB.setText("Royal burger: "+ String.valueOf(ilRB));
+                tvRB.setTextColor(getResources().getColor(R.color.colorPrimary));
+                if(i==0){
+                    tvRB.setTextColor(getResources().getColor(R.color.bd));
+                }
             }
 
             @Override
@@ -94,6 +103,10 @@ public class Zamowienie extends AppCompatActivity implements View.OnClickListene
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                 ilCheeseburger = i;
                 tvCheeseburger.setText("Cheeseburger: "+ String.valueOf(ilCheeseburger));
+                tvCheeseburger.setTextColor(getResources().getColor(R.color.colorPrimary));
+                if(i==0){
+                    tvCheeseburger.setTextColor(getResources().getColor(R.color.bd));
+                }
             }
 
             @Override
@@ -111,7 +124,12 @@ public class Zamowienie extends AppCompatActivity implements View.OnClickListene
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                 ilHamburger = i;
+                tvhamburger.setTextColor(getResources().getColor(R.color.colorPrimary));
                 tvhamburger.setText("Hamburger: " + String.valueOf(ilHamburger));
+                if(i==0){
+                    tvhamburger.setTextColor(getResources().getColor(R.color.bd));
+                }
+
             }
 
             @Override
