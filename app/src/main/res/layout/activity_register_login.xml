@@ -50,6 +50,7 @@
         android:layout_marginLeft="32dp"
         android:layout_below="@+id/etPass"
         android:text="Sign in"
+        android:textColor="#FFFFFF"
         android:textAllCaps="false"
         android:layout_marginTop="30dp"
         />
@@ -62,6 +63,7 @@
         android:layout_marginLeft="187dp"
         android:layout_below="@+id/etPass"
         android:text="Register"
+        android:textColor="#FFFFFF"
         android:textAllCaps="false"
         android:layout_marginTop="30dp"
         />

@@ -62,7 +62,8 @@
                 android:layout_marginTop="140dp"
                 android:hint="8/21"
                 android:inputType="date"
-                android:textSize="24dp" />
+                android:textSize="24dp"
+                android:id="@+id/data"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -71,30 +72,31 @@
                 android:text="CVC"
                 android:textSize="24dp"
                 android:layout_marginLeft="10dp"
-                android:id="@+id/data"/>
+                />
 
             <EditText
+                android:id="@+id/cvc"
                 android:layout_width="69dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="230dp"
                 android:hint="123"
-                android:textSize="24dp"
-                android:id="@+id/cvc"/>
+                android:inputType="number"
+                android:textSize="24dp" />
 
             <Button
+                android:id="@+id/btnZero"
                 android:layout_width="160dp"
-                android:layout_height="wrap_content"
-                android:text="Anuluj płatność"
+                android:layout_height="47dp"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="310dp"
                 android:background="@drawable/button_round"
-                android:layout_marginLeft="10dp"
-                android:textSize="14dp"
-                android:id="@+id/btnZero"/>
+                android:text="Anuluj płatność"
+                android:textSize="14dp" />
 
             <Button
                 android:layout_width="160dp"
-                android:layout_height="wrap_content"
+                android:layout_height="47dp"
                 android:text="Zapłać"
                 android:layout_marginLeft="190dp"
                 android:background="@drawable/button_round"

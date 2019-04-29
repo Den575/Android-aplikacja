@@ -14,7 +14,7 @@ public class Zaplac extends AppCompatActivity implements View.OnClickListener {
 
     TextView tvzaplac;
     Button btnZero, btnZaplac;
-    EditText etnrkarty;
+    EditText etnrkarty, etData, etCVC;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +33,8 @@ public class Zaplac extends AppCompatActivity implements View.OnClickListener {
         btnZaplac.setOnClickListener(this);
 
         etnrkarty = (EditText) findViewById(R.id.nrkarty);
+        etData = (EditText) findViewById(R.id.data);
+        etCVC = (EditText) findViewById(R.id.cvc);
     }
 
     public void msg(Context context, String str) {
@@ -49,14 +51,18 @@ public class Zaplac extends AppCompatActivity implements View.OnClickListener {
                 break;
             case R.id.btnZaplac:
                 String nrK = String.valueOf(etnrkarty.getText().toString());
-                if(nrK.length()==16){
+                String data = String.valueOf(etData.getText().toString());
+                String cvc = String.valueOf(etCVC.getText().toString());
+                if(nrK.length()==16 && data.length()==4 && cvc.length()==3){
                     msg(this,"Dziękujemy za zamówienie");
                     intent1 = new Intent("android.intent.action.MAIN");
                     startActivity(intent1);
                 }
                 else{
-                    msg(this,"Nr karty musi zawierac 26 cyfr");
+                    msg(this,"Niepoprawny format danych");
                     etnrkarty.setTextColor(getResources().getColor(R.color.colorPrimary));
+                    etData.setTextColor(getResources().getColor(R.color.colorPrimary));
+                    etCVC.setTextColor(getResources().getColor(R.color.colorPrimary));
                 }
         }
 

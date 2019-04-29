@@ -4,7 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".NotificationsFragment">
+    tools:context=".NotificationsFragment"
+    android:background="#FFFFFF">
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:background="#FFFFFF">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="494dp"
+            android:layout_height="141dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="190dp"
+            android:layout_marginBottom="180dp"
+            android:src="@drawable/userico" />
+    </FrameLayout>
+
 
 
     <TextView
@@ -48,6 +65,7 @@
         android:layout_marginTop="350dp"
         android:background="@drawable/button_round"
         android:text="About App"
+        android:textColor="#FFFFFF"
         android:textAllCaps="false" />
 
     <Button
@@ -58,15 +76,6 @@
         android:layout_marginTop="404dp"
         android:background="@drawable/button_round"
         android:text="Log Out"
+        android:textColor="#FFFFFF"
         android:textAllCaps="false" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="494dp"
-        android:layout_height="141dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="180dp"
-        android:src="@drawable/userico" />
-
 </FrameLayout>
