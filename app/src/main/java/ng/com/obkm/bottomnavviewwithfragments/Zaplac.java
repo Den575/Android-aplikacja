@@ -10,11 +10,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.santalu.maskedittext.MaskEditText;
+
 public class Zaplac extends AppCompatActivity implements View.OnClickListener {
 
     TextView tvzaplac;
     Button btnZero, btnZaplac;
-    EditText etnrkarty, etData, etCVC;
+    MaskEditText etnrkarty, etData, etCVC;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,9 +34,9 @@ public class Zaplac extends AppCompatActivity implements View.OnClickListener {
         btnZero.setOnClickListener(this);
         btnZaplac.setOnClickListener(this);
 
-        etnrkarty = (EditText) findViewById(R.id.nrkarty);
-        etData = (EditText) findViewById(R.id.data);
-        etCVC = (EditText) findViewById(R.id.cvc);
+        etnrkarty = findViewById(R.id.nrkarty);
+        etData = findViewById(R.id.data);
+        etCVC = findViewById(R.id.cvc);
     }
 
     public void msg(Context context, String str) {
