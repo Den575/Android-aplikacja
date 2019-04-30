@@ -57,6 +57,8 @@ public class RegisterLogin extends AppCompatActivity implements View.OnClickList
                     etPass.setText(c.getString(2));
                 } else {
                     msg(this, "Invalid E-mail or Password");
+                    etEmail.setTextColor(getResources().getColor(R.color.colorPrimary));
+                    etPass.setTextColor(getResources().getColor(R.color.colorPrimary));
                 }
                 break;
             case R.id.btnReg:

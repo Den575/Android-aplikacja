@@ -44,7 +44,8 @@
                 android:layout_marginTop="40dp"
                 android:text="4 zł"
                 android:textColor="@color/colorPrimary"
-                android:textSize="20dp" />
+                android:textSize="20dp"
+                android:id="@+id/cenaCola"/>
 
             <ImageView
                 android:layout_marginTop="10dp"
@@ -87,7 +88,8 @@
                 android:layout_marginTop="300dp"
                 android:text="3,50 zł"
                 android:textColor="@color/colorPrimary"
-                android:textSize="20dp" />
+                android:textSize="20dp"
+                android:id="@+id/cenaFanta"/>
 
             <ImageView
                 android:layout_width="159dp"
@@ -130,7 +132,8 @@
                 android:layout_marginTop="550dp"
                 android:text="4,50 zł"
                 android:textColor="@color/colorPrimary"
-                android:textSize="20dp" />
+                android:textSize="20dp"
+                android:id="@+id/cenaSprite"/>
 
             <ImageView
                 android:layout_width="208dp"

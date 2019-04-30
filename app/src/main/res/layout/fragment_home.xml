@@ -5,7 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".NotificationsFragment"
-    android:background="@drawable/homeact1">
+    >
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="413dp"
+        android:src="@drawable/home" />
 
     <Button
         android:id="@+id/btnLokal"
@@ -15,6 +20,7 @@
         android:layout_marginTop="434dp"
         android:background="@drawable/button_round"
         android:text="In Local"
+        android:textColor="#FFFFFF"
         android:textAllCaps="false" />
 
     <Button
@@ -25,6 +31,7 @@
         android:layout_marginTop="434dp"
         android:background="@drawable/button_round"
         android:text="Takeaway"
+        android:textColor="#FFFFFF"
         android:textAllCaps="false" />
 
 </FrameLayout>

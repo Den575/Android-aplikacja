@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 public class Zamowienie extends AppCompatActivity implements View.OnClickListener {
 
-    TextView tvhamburger, tvCena, tvCheeseburger, tvRB, tvCB;
+    TextView tvhamburger, tvCena, tvCheeseburger, tvRB, tvCB, cenaC, cenaH, cenaR, cenaCB;
     Button btnHamburger, btnOczysc, btnCheeseburger, btnRB, btnCB, btnNapoje;
     SeekBar sbHamburger, sbCheeseburger, sbRB, sbCB;
     int ilHamburger = 0;
@@ -38,6 +38,10 @@ public class Zamowienie extends AppCompatActivity implements View.OnClickListene
         tvRB = (TextView) findViewById(R.id.tvRB);
         tvCB = (TextView) findViewById(R.id.tvCB);
         tvCena = (TextView) findViewById(R.id.cena);
+        cenaH = (TextView) findViewById(R.id.cenaH);
+        cenaC = (TextView) findViewById(R.id.cenaC);
+        cenaR = (TextView) findViewById(R.id.cenaR);
+        cenaCB = (TextView) findViewById(R.id.cenaCB);
 
         btnHamburger = (Button) findViewById(R.id.btnhumburger);
         btnOczysc = (Button) findViewById(R.id.btnOczysc);
@@ -58,9 +62,12 @@ public class Zamowienie extends AppCompatActivity implements View.OnClickListene
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                 ilCB = i;
                 tvCB.setText("Chicken burger: " +String.valueOf(ilCB));
+                cenaCB.setText(String.valueOf(13.50*ilCB)+" zł");
                 tvCB.setTextColor(getResources().getColor(R.color.colorPrimary));
                 if(i==0){
                     tvCB.setTextColor(getResources().getColor(R.color.bd));
+                    tvCB.setText("Chicken burger");
+                    cenaCB.setText("13.50 zł");
                 }
 
             }
@@ -81,9 +88,12 @@ public class Zamowienie extends AppCompatActivity implements View.OnClickListene
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                 ilRB = i;
                 tvRB.setText("Royal burger: "+ String.valueOf(ilRB));
+                cenaR.setText(String.valueOf(12*ilRB)+" zł");
                 tvRB.setTextColor(getResources().getColor(R.color.colorPrimary));
                 if(i==0){
                     tvRB.setTextColor(getResources().getColor(R.color.bd));
+                    tvRB.setText("Royal burger");
+                    cenaR.setText("12 zł");
                 }
             }
 
@@ -103,9 +113,12 @@ public class Zamowienie extends AppCompatActivity implements View.OnClickListene
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                 ilCheeseburger = i;
                 tvCheeseburger.setText("Cheeseburger: "+ String.valueOf(ilCheeseburger));
+                cenaC.setText(String.valueOf(8*ilCheeseburger)+" zł");
                 tvCheeseburger.setTextColor(getResources().getColor(R.color.colorPrimary));
                 if(i==0){
                     tvCheeseburger.setTextColor(getResources().getColor(R.color.bd));
+                    tvCheeseburger.setText("Cheeseburger");
+                    cenaC.setText("8 zł");
                 }
             }
 
@@ -126,8 +139,11 @@ public class Zamowienie extends AppCompatActivity implements View.OnClickListene
                 ilHamburger = i;
                 tvhamburger.setTextColor(getResources().getColor(R.color.colorPrimary));
                 tvhamburger.setText("Hamburger: " + String.valueOf(ilHamburger));
+                cenaH.setText(String.valueOf(6.50*ilHamburger)+" zł");
                 if(i==0){
                     tvhamburger.setTextColor(getResources().getColor(R.color.bd));
+                    tvhamburger.setText("Hamburger");
+                    cenaH.setText("6.50 zł");
                 }
 
             }
@@ -150,25 +166,25 @@ public class Zamowienie extends AppCompatActivity implements View.OnClickListene
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btnhumburger:
-                cena+=(double) Math.round((ilHamburger*6.99)*100)/100;
-                tvCena.setText("Do opłaty: "+ String.valueOf(cena)+" zł");
+                cena+=(double) Math.round((ilHamburger*6.50)*100)/100;
+                tvCena.setText("Do zapłaty: "+ String.valueOf(cena)+" zł");
                 break;
             case R.id.btnCheeseburger:
                 cena+=ilCheeseburger*8;
                 cena+=(double) Math.round((ilCheeseburger*8)*100)/100;
-                tvCena.setText("Do opłaty: "+ String.valueOf(cena)+" zł");
+                tvCena.setText("Do zapłaty: "+ String.valueOf(cena)+" zł");
                 break;
             case R.id.btnRB:
                 cena+=(double) Math.round((ilRB*12)*100)/100;
-                tvCena.setText("Do opłaty: "+ String.valueOf(cena)+" zł");
+                tvCena.setText("Do zapłaty: "+ String.valueOf(cena)+" zł");
                 break;
             case R.id.btnCB:
-                cena+=(double) Math.round((ilCB*13.99)*100)/100;
-                tvCena.setText("Do opłaty: "+ String.valueOf(cena)+" zł");
+                cena+=(double) Math.round((ilCB*13.50)*100)/100;
+                tvCena.setText("Do zapłaty: "+ String.valueOf(cena)+" zł");
                 break;
             case R.id.btnOczysc:
                 cena=0;
-                tvCena.setText("Do opłaty: "+ String.valueOf(cena)+" zł");
+                tvCena.setText("Do zapłaty: "+ String.valueOf(cena)+" zł");
                 break;
             case R.id.btnNapoje:
                 Intent intent = new Intent(this,Napoje.class);
@@ -176,7 +192,6 @@ public class Zamowienie extends AppCompatActivity implements View.OnClickListene
                 intent.putExtra("cena",old);
                 startActivity(intent);
                 break;
-
         }
     }
 }
