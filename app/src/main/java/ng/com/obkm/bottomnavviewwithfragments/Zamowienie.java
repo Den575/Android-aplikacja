@@ -170,7 +170,6 @@ public class Zamowienie extends AppCompatActivity implements View.OnClickListene
                 tvCena.setText("Do zapłaty: "+ String.valueOf(cena)+" zł");
                 break;
             case R.id.btnCheeseburger:
-                cena+=ilCheeseburger*8;
                 cena+=(double) Math.round((ilCheeseburger*8)*100)/100;
                 tvCena.setText("Do zapłaty: "+ String.valueOf(cena)+" zł");
                 break;

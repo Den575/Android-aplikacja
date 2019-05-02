@@ -55,9 +55,9 @@ public class Zaplac extends AppCompatActivity implements View.OnClickListener {
                 String nrK = String.valueOf(etnrkarty.getText().toString());
                 String data = String.valueOf(etData.getText().toString());
                 String cvc = String.valueOf(etCVC.getText().toString());
-                if(nrK.length()==16 && data.length()==4 && cvc.length()==3){
+                if(nrK.length()==19 && data.length()==4 && cvc.length()==3){
                     msg(this,"Dziękujemy za zamówienie");
-                    intent1 = new Intent("android.intent.action.MAIN");
+                    intent1 = new Intent("android.intent.action.Invoice");
                     startActivity(intent1);
                 }
                 else{
