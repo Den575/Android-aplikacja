@@ -1,6 +1,7 @@
 package ng.com.obkm.bottomnavviewwithfragments;
 
 import android.Manifest;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -31,6 +32,7 @@ import static android.view.Gravity.CENTER;
 public class Qrcam extends AppCompatActivity implements View.OnClickListener {
 
     SurfaceView cameraPreview;
+    SQLiteDatabase db;
     TextView txtResult;
     BarcodeDetector barcodeDetector;
     CameraSource cameraSource;
@@ -67,6 +69,8 @@ public class Qrcam extends AppCompatActivity implements View.OnClickListener {
         btnNext = (Button) findViewById(R.id.btnNext);
         btnNext.setEnabled(false);
         btnNext.setOnClickListener(this);
+
+        db = openOrCreateDatabase("usersDB", Context.MODE_PRIVATE, null);
 
         Toast toast  = Toast.makeText(getApplicationContext(),"Please focus camera to QR Code",Toast.LENGTH_LONG);
         toast.setGravity(CENTER, 0, 0);
@@ -176,6 +180,7 @@ public class Qrcam extends AppCompatActivity implements View.OnClickListener {
         switch (view.getId()){
             case R.id.btnNext:
                 intent = new Intent("android.intent.action.MAIN");
+                db.execSQL("UPDATE Users  SET nrStolika ='"+ txtResult.getText()+"' WHERE UserId ='"+1+"'");
                 startActivity(intent);
 
                 break;

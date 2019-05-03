@@ -42,7 +42,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="270dp"
                 android:layout_marginTop="40dp"
-                android:text="4 zł"
+                android:text="4,00 zł"
                 android:textColor="@color/colorPrimary"
                 android:textSize="20dp"
                 android:id="@+id/cenaCola"/>
@@ -86,7 +86,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="270dp"
                 android:layout_marginTop="300dp"
-                android:text="3,50 zł"
+                android:text="3,00 zł"
                 android:textColor="@color/colorPrimary"
                 android:textSize="20dp"
                 android:id="@+id/cenaFanta"/>
@@ -130,7 +130,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="270dp"
                 android:layout_marginTop="550dp"
-                android:text="4,50 zł"
+                android:text="4,00 zł"
                 android:textColor="@color/colorPrimary"
                 android:textSize="20dp"
                 android:id="@+id/cenaSprite"/>

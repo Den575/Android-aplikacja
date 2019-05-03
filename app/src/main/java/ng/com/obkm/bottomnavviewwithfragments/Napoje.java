@@ -17,6 +17,7 @@ public class Napoje extends AppCompatActivity implements View.OnClickListener {
     SeekBar sbCC, sbFa, sbSp;
     double cena =0;
     int liC, liF, liS;
+    String zamowienie1="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +53,8 @@ public class Napoje extends AppCompatActivity implements View.OnClickListener {
 
         Intent intent = getIntent();
         String oldcena = intent.getStringExtra("cena");
-        cena = Double.valueOf(oldcena);
+        cena = Double.valueOf(oldcena.substring(0,2));
+        zamowienie1=oldcena.substring(3);
         tvcena1.setText("Do opłaty: "+String.valueOf(cena)+" zł");
 
 
@@ -66,7 +68,7 @@ public class Napoje extends AppCompatActivity implements View.OnClickListener {
                 if(i==0){
                     tvCC.setTextColor(getResources().getColor(R.color.bd));
                     tvCC.setText("Coca-cola");
-                    cenaCola.setText("4 zł");
+                    cenaCola.setText("4,00 zł");
                 }
             }
 
@@ -91,7 +93,7 @@ public class Napoje extends AppCompatActivity implements View.OnClickListener {
                 if(i==0){
                     tvFa.setTextColor(getResources().getColor(R.color.bd));
                     tvFa.setText("Fanta");
-                    cenaFanta.setText("3,50 zł");
+                    cenaFanta.setText("3,00 zł");
                 }
             }
 
@@ -116,7 +118,7 @@ public class Napoje extends AppCompatActivity implements View.OnClickListener {
                 if(i==0){
                     tvSp.setTextColor(getResources().getColor(R.color.bd));
                     tvSp.setText("Sprite");
-                    cenaSprite.setText("4,50 zł");
+                    cenaSprite.setText("4,00 zł");
                 }
             }
 
@@ -143,18 +145,22 @@ public class Napoje extends AppCompatActivity implements View.OnClickListener {
             case R.id.btnCC:
                 cena+=liC*4;
                 tvcena1.setText("Do opłaty: "+ String.valueOf(cena)+" zł");
+                zamowienie1+=String.valueOf(liC)+"X Coca-Cola\n";
                 break;
             case R.id.btnFa:
-                cena+=liF*3.5;
+                cena+=liF*3;
                 tvcena1.setText("Do opłaty: "+ String.valueOf(cena)+" zł");
+                zamowienie1+=String.valueOf(liF)+"X Fanta\n";
                 break;
             case R.id.btnSp:
-                cena+=liS*4.5;
+                cena+=liS*4;
                 tvcena1.setText("Do opłaty: "+ String.valueOf(cena)+" zł");
+                zamowienie1+=String.valueOf(liS)+"X Sprite\n";
                 break;
             case R.id.btnAnuluj:
                 cena=0;
                 tvcena1.setText("Do opłaty: "+ String.valueOf(cena)+" zł");
+                zamowienie1="";
                 break;
             case R.id.btnOrder:
                 if(cena==0){
@@ -162,8 +168,8 @@ public class Napoje extends AppCompatActivity implements View.OnClickListener {
                     return;
                 }
                 Intent intent1 = new Intent(this,Zaplac.class);
-                String old = String.valueOf(cena);
-                intent1.putExtra("cena1",old);
+                String old = String.valueOf(cena)+","+zamowienie1;
+                intent1.putExtra("cena3",old);
                 startActivity(intent1);
                 break;
         }

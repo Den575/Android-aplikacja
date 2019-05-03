@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="270dp"
                 android:layout_marginTop="40dp"
-                android:text="6,50 zł"
+                android:text="6,00 zł"
                 android:textColor="@color/colorPrimary"
                 android:textSize="20dp"
                 android:id="@+id/cenaH"/>
@@ -87,7 +87,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="270dp"
                 android:layout_marginTop="280dp"
-                android:text="8 zł"
+                android:text="8,00 zł"
                 android:textColor="@color/colorPrimary"
                 android:textSize="20dp"
                 android:id="@+id/cenaC"/>
@@ -130,7 +130,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="270dp"
                 android:layout_marginTop="480dp"
-                android:text="12 zł"
+                android:text="12,00 zł"
                 android:textColor="@color/colorPrimary"
                 android:textSize="20dp"
                 android:id="@+id/cenaR"/>
@@ -172,7 +172,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="270dp"
                 android:layout_marginTop="730dp"
-                android:text="13,50 zł"
+                android:text="13,00 zł"
                 android:textColor="@color/colorPrimary"
                 android:textSize="20dp"
                 android:id="@+id/cenaCB"/>

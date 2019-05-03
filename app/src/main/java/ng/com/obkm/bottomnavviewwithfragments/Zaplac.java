@@ -17,6 +17,7 @@ public class Zaplac extends AppCompatActivity implements View.OnClickListener {
     TextView tvzaplac;
     Button btnZero, btnZaplac;
     MaskEditText etnrkarty, etData, etCVC;
+    String oldCena="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,9 +26,8 @@ public class Zaplac extends AppCompatActivity implements View.OnClickListener {
 
         tvzaplac = (TextView) findViewById(R.id.zaplata);
         Intent intent = getIntent();
-        String oldcena = intent.getStringExtra("cena1");
-        double cena = Double.valueOf(oldcena);
-        tvzaplac.setText("Suma do zapłaty: "+String.valueOf(cena)+" zł");
+        oldCena = intent.getStringExtra("cena3");
+        tvzaplac.setText("Suma do zapłaty: "+oldCena.substring(0,2)+" zł");
 
         btnZero = (Button) findViewById(R.id.btnZero);
         btnZaplac = (Button) findViewById(R.id.btnZaplac);
@@ -45,20 +45,22 @@ public class Zaplac extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View view) {
-        Intent intent1;
         switch (view.getId()){
             case R.id.btnZero:
-                intent1 = new Intent("android.intent.action.MAIN");
-                startActivity(intent1);
+                Intent intent;
+                intent = new Intent("android.intent.action.MAIN");
+                startActivity(intent);
                 break;
             case R.id.btnZaplac:
                 String nrK = String.valueOf(etnrkarty.getText().toString());
                 String data = String.valueOf(etData.getText().toString());
                 String cvc = String.valueOf(etCVC.getText().toString());
                 if(nrK.length()==19 && data.length()==4 && cvc.length()==3){
-                    msg(this,"Dziękujemy za zamówienie");
-                    intent1 = new Intent("android.intent.action.Invoice");
+                    Intent intent1 = new Intent(this,Invoice.class);
+                    intent1.putExtra("cena4",oldCena);
                     startActivity(intent1);
+
+
                 }
                 else{
                     msg(this,"Niepoprawny format danych");

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -49,18 +50,23 @@ public class RegisterLogin extends AppCompatActivity implements View.OnClickList
                     msg(this, "Enter E-mail and Password");
                     return;
                 }
-                Cursor c = db.rawQuery("SELECT * FROM Users WHERE UsrEmail='" + etEmail.getText() + "' AND UsrPass='" +etPass.getText()+"'",  null);
-                if (c.moveToFirst()) {
-                    intent = new Intent("android.intent.action.qr");
-                    startActivity(intent);
-                    etEmail.setText(c.getString(1));
-                    etPass.setText(c.getString(2));
-                } else {
-                    msg(this, "Invalid E-mail or Password");
-                    etEmail.setTextColor(getResources().getColor(R.color.colorPrimary));
-                    etPass.setTextColor(getResources().getColor(R.color.colorPrimary));
+                try{
+                    Cursor c = db.rawQuery("SELECT * FROM Users WHERE UsrEmail='" + etEmail.getText() + "' AND UsrPass='" +etPass.getText()+"'",  null);
+                    if (c.moveToFirst()) {
+                        intent = new Intent("android.intent.action.qr");
+                        startActivity(intent);
+                        etEmail.setText(c.getString(1));
+                        etPass.setText(c.getString(2));
+                    } else {
+                        msg(this, "Invalid E-mail or Password");
+                        etEmail.setTextColor(getResources().getColor(R.color.colorPrimary));
+                        etPass.setTextColor(getResources().getColor(R.color.colorPrimary));
+                    }
+                    break;
+                }catch (SQLiteException e){
+                    msg(this,"Please register");
                 }
-                break;
+
             case R.id.btnReg:
                 intent = new Intent("android.intent.action.Registration");
                 startActivity(intent);

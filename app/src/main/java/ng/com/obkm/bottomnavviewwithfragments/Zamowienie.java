@@ -18,6 +18,7 @@ public class Zamowienie extends AppCompatActivity implements View.OnClickListene
     int ilRB = 0;
     int ilCB = 0;
     double cena =0;
+    String zamowienie="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,12 +63,12 @@ public class Zamowienie extends AppCompatActivity implements View.OnClickListene
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                 ilCB = i;
                 tvCB.setText("Chicken burger: " +String.valueOf(ilCB));
-                cenaCB.setText(String.valueOf(13.50*ilCB)+" zł");
+                cenaCB.setText(String.valueOf(13*ilCB)+" zł");
                 tvCB.setTextColor(getResources().getColor(R.color.colorPrimary));
                 if(i==0){
                     tvCB.setTextColor(getResources().getColor(R.color.bd));
                     tvCB.setText("Chicken burger");
-                    cenaCB.setText("13.50 zł");
+                    cenaCB.setText("13.00 zł");
                 }
 
             }
@@ -93,7 +94,7 @@ public class Zamowienie extends AppCompatActivity implements View.OnClickListene
                 if(i==0){
                     tvRB.setTextColor(getResources().getColor(R.color.bd));
                     tvRB.setText("Royal burger");
-                    cenaR.setText("12 zł");
+                    cenaR.setText("12,00 zł");
                 }
             }
 
@@ -118,7 +119,7 @@ public class Zamowienie extends AppCompatActivity implements View.OnClickListene
                 if(i==0){
                     tvCheeseburger.setTextColor(getResources().getColor(R.color.bd));
                     tvCheeseburger.setText("Cheeseburger");
-                    cenaC.setText("8 zł");
+                    cenaC.setText("8,00 zł");
                 }
             }
 
@@ -139,11 +140,11 @@ public class Zamowienie extends AppCompatActivity implements View.OnClickListene
                 ilHamburger = i;
                 tvhamburger.setTextColor(getResources().getColor(R.color.colorPrimary));
                 tvhamburger.setText("Hamburger: " + String.valueOf(ilHamburger));
-                cenaH.setText(String.valueOf(6.50*ilHamburger)+" zł");
+                cenaH.setText(String.valueOf(6.00*ilHamburger)+" zł");
                 if(i==0){
                     tvhamburger.setTextColor(getResources().getColor(R.color.bd));
                     tvhamburger.setText("Hamburger");
-                    cenaH.setText("6.50 zł");
+                    cenaH.setText("6.00 zł");
                 }
 
             }
@@ -166,28 +167,33 @@ public class Zamowienie extends AppCompatActivity implements View.OnClickListene
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btnhumburger:
-                cena+=(double) Math.round((ilHamburger*6.50)*100)/100;
+                cena+=(double) Math.round((ilHamburger*6)*100)/100;
                 tvCena.setText("Do zapłaty: "+ String.valueOf(cena)+" zł");
+                zamowienie+=String.valueOf(ilHamburger)+"X Hamburger\n";
                 break;
             case R.id.btnCheeseburger:
                 cena+=(double) Math.round((ilCheeseburger*8)*100)/100;
                 tvCena.setText("Do zapłaty: "+ String.valueOf(cena)+" zł");
+                zamowienie+=String.valueOf(ilCheeseburger)+"X Cheeseburger\n";
                 break;
             case R.id.btnRB:
                 cena+=(double) Math.round((ilRB*12)*100)/100;
                 tvCena.setText("Do zapłaty: "+ String.valueOf(cena)+" zł");
+                zamowienie+=String.valueOf(ilRB)+"X Royal burger\n";
                 break;
             case R.id.btnCB:
-                cena+=(double) Math.round((ilCB*13.50)*100)/100;
+                cena+=(double) Math.round((ilCB*13)*100)/100;
                 tvCena.setText("Do zapłaty: "+ String.valueOf(cena)+" zł");
+                zamowienie+=String.valueOf(ilCB)+"X Chicken burger\n";
                 break;
             case R.id.btnOczysc:
                 cena=0;
                 tvCena.setText("Do zapłaty: "+ String.valueOf(cena)+" zł");
+                zamowienie="";
                 break;
             case R.id.btnNapoje:
                 Intent intent = new Intent(this,Napoje.class);
-                String old = String.valueOf(cena);
+                String old = String.valueOf(cena)+","+zamowienie;
                 intent.putExtra("cena",old);
                 startActivity(intent);
                 break;

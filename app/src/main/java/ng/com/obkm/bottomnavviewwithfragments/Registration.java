@@ -34,7 +34,7 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
         etrPassword = (EditText) findViewById(R.id.etrPass);
 
         db = openOrCreateDatabase("usersDB", Context.MODE_PRIVATE, null);
-        db.execSQL("CREATE TABLE IF NOT EXISTS Users(UserId INTEGER PRIMARY KEY AUTOINCREMENT, UsrName VARCHAR, UsrSurN VARCHAR, UsrEmail VARCHAR, UsrPass VARCHAR); ");
+        db.execSQL("CREATE TABLE IF NOT EXISTS Users(UserId INTEGER PRIMARY KEY AUTOINCREMENT, UsrName VARCHAR, UsrSurN VARCHAR, UsrEmail VARCHAR, UsrPass VARCHAR, nrStolika VARCHAR); ");
     }
 
     public void msg(Context context, String str) {
@@ -61,7 +61,8 @@ public class Registration extends AppCompatActivity implements View.OnClickListe
                     msg(this, "Please check CheckBox");
                     return;
                 }
-                db.execSQL("INSERT INTO Users(UsrName,UsrSurN,UsrEmail,UsrPass)VALUES('" + etrName.getText() + "','" + etrSurname.getText() + "','" + etrEmail.getText() + "','"+etrPassword.getText() +"');");
+                String text="0";
+                db.execSQL("INSERT INTO Users(UsrName,UsrSurN,UsrEmail,UsrPass,nrStolika)VALUES('" + etrName.getText() + "','" + etrSurname.getText() + "','" + etrEmail.getText() + "','"+etrPassword.getText() +"','"+text+"');");
                 msg(this, "User has been successfully registered");
                 intent = new Intent("android.intent.action.RegisterLogin");
                 startActivity(intent);
