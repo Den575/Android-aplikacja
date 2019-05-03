@@ -174,7 +174,7 @@ public class Zamowienie extends AppCompatActivity implements View.OnClickListene
             case R.id.btnCheeseburger:
                 cena+=(double) Math.round((ilCheeseburger*8)*100)/100;
                 tvCena.setText("Do zapłaty: "+ String.valueOf(cena)+" zł");
-                zamowienie+=String.valueOf(ilCheeseburger)+"X Cheeseburger\n";
+                zamowienie+=String.valueOf(ilCheeseburger)+"X Cheeseburger \n";
                 break;
             case R.id.btnRB:
                 cena+=(double) Math.round((ilRB*12)*100)/100;

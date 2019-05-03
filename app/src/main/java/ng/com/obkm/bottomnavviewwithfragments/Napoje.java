@@ -89,7 +89,7 @@ public class Napoje extends AppCompatActivity implements View.OnClickListener {
                 liF = i;
                 tvFa.setText("Fanta: "+String.valueOf(liF));
                 tvFa.setTextColor(getResources().getColor(R.color.colorPrimary));
-                cenaFanta.setText(String.valueOf(3.50*i)+" zł");
+                cenaFanta.setText(String.valueOf(3*i)+" zł");
                 if(i==0){
                     tvFa.setTextColor(getResources().getColor(R.color.bd));
                     tvFa.setText("Fanta");
@@ -114,7 +114,7 @@ public class Napoje extends AppCompatActivity implements View.OnClickListener {
                 liS = i;
                 tvSp.setText("Sprite: "+String.valueOf(liS));
                 tvSp.setTextColor(getResources().getColor(R.color.colorPrimary));
-                cenaSprite.setText(String.valueOf(4.50*i)+" zł");
+                cenaSprite.setText(String.valueOf(4*i)+" zł");
                 if(i==0){
                     tvSp.setTextColor(getResources().getColor(R.color.bd));
                     tvSp.setText("Sprite");
