@@ -129,7 +129,6 @@ public class Qrcam extends AppCompatActivity implements View.OnClickListener {
                                        @Override
                                        public void run() {
                                            Vibrator vibrator = (Vibrator)getApplicationContext().getSystemService(Context.VIBRATOR_SERVICE);
-                                           //vibrator.vibrate(50);
                                            txtResult.setText(qrcodes.valueAt(0).displayValue);
                                            String nrstolic = String.valueOf(qrcodes.valueAt(0).displayValue);
                                            txtResult.setText(nrstolic);
@@ -175,8 +174,6 @@ public class Qrcam extends AppCompatActivity implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         Intent intent;
-        //Intent intent1 = getIntent();
-        //String mail = intent1.getStringExtra("email");
         switch (view.getId()){
             case R.id.btnNext:
                 intent = new Intent("android.intent.action.MAIN");
@@ -193,6 +190,5 @@ public class Qrcam extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     public void onBackPressed() {
-        // do nothing
     }
 }
