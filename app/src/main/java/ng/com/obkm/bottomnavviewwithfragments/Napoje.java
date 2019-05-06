@@ -53,9 +53,9 @@ public class Napoje extends AppCompatActivity implements View.OnClickListener {
 
         Intent intent = getIntent();
         String oldcena = intent.getStringExtra("cena");
-        cena = Double.valueOf(oldcena.substring(0,2));
+        cena = cenaDouble(oldcena);
         zamowienie1=oldcena.substring(3);
-        tvcena1.setText("Do opłaty: "+String.valueOf(cena)+" zł");
+        tvcena1.setText("Do opłaty: "+String.valueOf(cena)+"0 zł");
 
 
         sbCC.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -138,28 +138,62 @@ public class Napoje extends AppCompatActivity implements View.OnClickListener {
         Toast.makeText(this, str, Toast.LENGTH_SHORT).show();
     }
 
+    public static double cenaDouble(String oldcena){
+        String newcena="";
+        String liczby="0123456789";
+        for(int i =0;i<oldcena.length();i++){
+            for(int j=0;j<liczby.length();j++){
+                if(liczby.charAt(j)==oldcena.charAt(i)){
+                    newcena+=oldcena.charAt(i);
+
+                }
+                else if(oldcena.charAt(i)=='.'){
+                    return Double.valueOf(newcena);
+                }
+            }
+        }
+        return Double.valueOf(newcena);
+    }
+
+    public static String cenaS(String oldcena){
+        String newcena="";
+        String liczby="0123456789";
+        for(int i =0;i<oldcena.length();i++){
+            for(int j=0;j<liczby.length();j++){
+                if(liczby.charAt(j)==oldcena.charAt(i)){
+                    newcena+=oldcena.charAt(i);
+
+                }
+                else if(oldcena.charAt(i)=='.'){
+                    return newcena;
+                }
+            }
+        }
+        return newcena;
+    }
+
 
     @Override
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.btnCC:
                 cena+=liC*4;
-                tvcena1.setText("Do opłaty: "+ String.valueOf(cena)+" zł");
+                tvcena1.setText("Do opłaty: "+ String.valueOf(cena)+"0 zł");
                 zamowienie1+=String.valueOf(liC)+"X Coca-Cola\n";
                 break;
             case R.id.btnFa:
                 cena+=liF*3;
-                tvcena1.setText("Do opłaty: "+ String.valueOf(cena)+" zł");
+                tvcena1.setText("Do opłaty: "+ String.valueOf(cena)+"0 zł");
                 zamowienie1+=String.valueOf(liF)+"X Fanta\n";
                 break;
             case R.id.btnSp:
                 cena+=liS*4;
-                tvcena1.setText("Do opłaty: "+ String.valueOf(cena)+" zł");
+                tvcena1.setText("Do opłaty: "+ String.valueOf(cena)+"0 zł");
                 zamowienie1+=String.valueOf(liS)+"X Sprite\n";
                 break;
             case R.id.btnAnuluj:
                 cena=0;
-                tvcena1.setText("Do opłaty: "+ String.valueOf(cena)+" zł");
+                tvcena1.setText("Do opłaty: "+ String.valueOf(cena)+"0 zł");
                 zamowienie1="";
                 break;
             case R.id.btnOrder:
@@ -168,7 +202,7 @@ public class Napoje extends AppCompatActivity implements View.OnClickListener {
                     return;
                 }
                 Intent intent1 = new Intent(this,Zaplac.class);
-                String old = String.valueOf(cena)+","+zamowienie1;
+                String old = (cenaS(String.valueOf(cena)))+"."+zamowienie1;
                 intent1.putExtra("cena3",old);
                 startActivity(intent1);
                 break;

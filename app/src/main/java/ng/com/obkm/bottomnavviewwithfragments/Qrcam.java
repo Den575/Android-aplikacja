@@ -179,7 +179,6 @@ public class Qrcam extends AppCompatActivity implements View.OnClickListener {
                 intent = new Intent("android.intent.action.MAIN");
                 db.execSQL("UPDATE Users  SET nrStolika ='"+ txtResult.getText()+"' WHERE UserId ='"+1+"'");
                 startActivity(intent);
-
                 break;
             default:
                 break;

@@ -34,8 +34,8 @@ public class Invoice extends AppCompatActivity implements View.OnClickListener {
 
         Intent intent = getIntent();
         oldcena = intent.getStringExtra("cena4");
-        cena = Double.valueOf(oldcena.substring(0,2));
-        String zamowienie = oldcena.substring(7);
+        cena = cenaDouble(oldcena);
+        String zamowienie = oldcena.substring(String.valueOf(cena).length()+1);
 
 
         db = openOrCreateDatabase("usersDB", Context.MODE_PRIVATE, null);
@@ -45,7 +45,7 @@ public class Invoice extends AppCompatActivity implements View.OnClickListener {
             nameSurname+=" "+c.getString(2);
             String nrStolika=c.getString(5);
             tvName.setText("Imię i Nazwisko: "+nameSurname);
-            tvWZ.setText("Wartość zamowienia: "+String.valueOf(cena)+" zł");
+            tvWZ.setText("Wartość zamowienia: "+String.valueOf(cena)+"0 zł");
             tvNRS.setText("Nr stolika: "+nrStolika.substring(13,14));
             tvZamowienie.setText("Zamówienie:\n"+zamowienie);
         }
@@ -54,6 +54,25 @@ public class Invoice extends AppCompatActivity implements View.OnClickListener {
     public void msg(Context context, String str) {
         Toast.makeText(this, str, Toast.LENGTH_SHORT).show();
     }
+
+    public static double cenaDouble(String oldcena){
+        String newcena="";
+        String liczby="0123456789";
+        for(int i =0;i<oldcena.length();i++){
+            for(int j=0;j<liczby.length();j++){
+                if(liczby.charAt(j)==oldcena.charAt(i)){
+                    newcena+=oldcena.charAt(i);
+
+                }
+                else if(oldcena.charAt(i)=='.'){
+                    return Double.valueOf(newcena);
+                }
+            }
+        }
+        return Double.valueOf(newcena);
+    }
+
+
 
     @Override
     public void onClick(View view) {

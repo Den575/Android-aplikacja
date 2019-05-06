@@ -27,7 +27,8 @@ public class Zaplac extends AppCompatActivity implements View.OnClickListener {
         tvzaplac = (TextView) findViewById(R.id.zaplata);
         Intent intent = getIntent();
         oldCena = intent.getStringExtra("cena3");
-        tvzaplac.setText("Suma do zapłaty: "+oldCena.substring(0,2)+" zł");
+        double cena = cenaDouble(oldCena);
+        tvzaplac.setText("Suma do zapłaty: "+String.valueOf(cena)+"0 zł");
 
         btnZero = (Button) findViewById(R.id.btnZero);
         btnZaplac = (Button) findViewById(R.id.btnZaplac);
@@ -41,6 +42,23 @@ public class Zaplac extends AppCompatActivity implements View.OnClickListener {
 
     public void msg(Context context, String str) {
         Toast.makeText(this, str, Toast.LENGTH_SHORT).show();
+    }
+
+    public static double cenaDouble(String oldcena){
+        String newcena="";
+        String liczby="0123456789";
+        for(int i =0;i<oldcena.length();i++){
+            for(int j=0;j<liczby.length();j++){
+                if(liczby.charAt(j)==oldcena.charAt(i)){
+                    newcena+=oldcena.charAt(i);
+
+                }
+                else if(oldcena.charAt(i)=='.'){
+                    return Double.valueOf(newcena);
+                }
+            }
+        }
+        return Double.valueOf(newcena);
     }
 
     @Override
