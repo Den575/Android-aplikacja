@@ -88,7 +88,6 @@ public class Qrcam extends AppCompatActivity implements View.OnClickListener {
             @Override
             public void surfaceCreated(SurfaceHolder surfaceHolder) {
                 if (ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
-                    //Request permission
                     ActivityCompat.requestPermissions(Qrcam.this,
                             new String[]{Manifest.permission.CAMERA},RequestCameraPermissionID);
                     return;
@@ -122,7 +121,6 @@ public class Qrcam extends AppCompatActivity implements View.OnClickListener {
 
             @Override
             public void receiveDetections(Detector.Detections<Barcode> detections) {
-                Intent intent;
                 final SparseArray<Barcode> qrcodes = detections.getDetectedItems();
                 if(qrcodes.size() != 0){
                     txtResult.post(new Runnable() {
@@ -132,28 +130,17 @@ public class Qrcam extends AppCompatActivity implements View.OnClickListener {
                                            txtResult.setText(qrcodes.valueAt(0).displayValue);
                                            String nrstolic = String.valueOf(qrcodes.valueAt(0).displayValue);
                                            txtResult.setText(nrstolic);
-                                           if(nrstolic.equals("Table number 1 reserved")){
-                                               btnNext.setEnabled(true);
-                                               vibrator.vibrate(50);
-                                           }
-                                           else if(nrstolic.equals("Table number 2 reserved")){
-                                               btnNext.setEnabled(true);
-                                               vibrator.vibrate(50);
-                                           }
-                                           else if(nrstolic.equals("Table number 3 reserved")){
-                                               btnNext.setEnabled(true);
-                                               vibrator.vibrate(50);
-                                           }
-                                           else if(nrstolic.equals("Table number 4 reserved")){
-                                               btnNext.setEnabled(true);
-                                               vibrator.vibrate(50);
-                                           }
-                                           else if(nrstolic.equals("Table number 5 reserved")){
-                                               btnNext.setEnabled(true);
-                                               vibrator.vibrate(50);
-                                           }
-                                           else{
-                                               txtResult.setText("Try again scan QrCode on your table");
+                                           String[] stoliki = {"Table number 1 reserved",
+                                                   "Table number 2 reserved","Table number 3 reserved",
+                                                   "Table number 4 reserved","Table number 5 reserved"};
+                                           for(int i=0;i<stoliki.length;i++){
+                                               if(nrstolic.equals(stoliki[i])){
+                                                   btnNext.setEnabled(true);
+                                                   vibrator.vibrate(50);
+                                               }
+                                               else{
+                                                   txtResult.setText("Try again scan QrCode on your table");
+                                               }
                                            }
 
                                        }
@@ -165,8 +152,7 @@ public class Qrcam extends AppCompatActivity implements View.OnClickListener {
         });
 
     }
-    public void msg(Context context,String str)
-    {
+    public void msg(Context context,String str) {
         Toast.makeText(this,str,Toast.LENGTH_SHORT).show();
     }
 
