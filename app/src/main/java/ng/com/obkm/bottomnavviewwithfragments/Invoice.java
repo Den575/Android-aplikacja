@@ -35,7 +35,7 @@ public class Invoice extends AppCompatActivity implements View.OnClickListener {
         Intent intent = getIntent();
         oldcena = intent.getStringExtra("cena4");
         cena = cenaDouble(oldcena);
-        String zamowienie = oldcena.substring(String.valueOf(cena).length()+1);
+        String zamowienie = oldcena.substring(String.valueOf(cena).length()-1);
 
 
         db = openOrCreateDatabase("usersDB", Context.MODE_PRIVATE, null);

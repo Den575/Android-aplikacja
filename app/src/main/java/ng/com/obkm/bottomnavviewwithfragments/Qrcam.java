@@ -138,9 +138,6 @@ public class Qrcam extends AppCompatActivity implements View.OnClickListener {
                                                    btnNext.setEnabled(true);
                                                    vibrator.vibrate(50);
                                                }
-                                               else{
-                                                   txtResult.setText("Try again scan QrCode on your table");
-                                               }
                                            }
 
                                        }
