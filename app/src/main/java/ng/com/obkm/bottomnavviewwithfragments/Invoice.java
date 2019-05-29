@@ -11,9 +11,11 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Date;
+
 public class Invoice extends AppCompatActivity implements View.OnClickListener {
 
-    TextView tvName, tvWZ, tvNRS, tvZamowienie;
+    TextView tvName, tvWZ, tvNRS, tvZamowienie, tvDate;
     Button btnHome;
     SQLiteDatabase db;
     String oldcena="";
@@ -24,10 +26,14 @@ public class Invoice extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_invoice);
 
+        Date date = new Date();
+
         tvName = (TextView) findViewById(R.id.tvName);
         tvWZ = (TextView) findViewById(R.id.tvWZ);
         tvNRS = (TextView) findViewById(R.id.tvNRS);
         tvZamowienie = (TextView) findViewById(R.id.tvZamow);
+        tvDate = (TextView) findViewById(R.id.tvDate);
+        tvDate.setText(date.toString());
 
         btnHome = (Button) findViewById(R.id.btnHome);
         btnHome.setOnClickListener(this);
